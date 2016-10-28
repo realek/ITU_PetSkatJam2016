@@ -17,12 +17,17 @@ public class PCScreenObject : MonoBehaviour {
     // Use this for initialization
 	void Start () {
         m_iconImage = GetComponent<Image>();
-        m_iconText = transform.GetChild(0).GetComponent<Text>();
+        m_iconText = transform.GetChild(1).GetComponent<Text>();
         m_iconImage.sprite = m_iconSprite;
         m_iconText.text = m_IconName;
 
-        if(m_windowPrefab!=null)
+        if (m_windowPrefab != null)
+        {
             m_associtatedWindow = Instantiate(m_windowPrefab).GetComponent<PcScreenWindow>();
+            m_associtatedWindow.transform.SetParent(transform.parent);
+            m_associtatedWindow.transform.localPosition = transform.localPosition;
+        }
+
 
 
 	}
@@ -34,9 +39,14 @@ public class PCScreenObject : MonoBehaviour {
 
     public void OpenWindow()
     {
-        if(m_associtatedWindow.State != PcWindowState.Open)
+        if (m_associtatedWindow.State != PcWindowState.Open)
+        {
+            m_associtatedWindow.gameObject.SetActive(true);
             m_associtatedWindow.Open();
+        }
+
 
     }
+
 
 }
