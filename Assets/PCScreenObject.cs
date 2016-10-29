@@ -13,7 +13,7 @@ public class PCScreenObject : MonoBehaviour {
     private PcScreenWindow m_associtatedWindow;
     private Image m_iconImage;
     private Text m_iconText;
-	
+    public bool CanBeOpened = true;
     // Use this for initialization
 	void Start () {
         m_iconImage = GetComponent<Image>();
@@ -41,7 +41,7 @@ public class PCScreenObject : MonoBehaviour {
 
     public void OpenWindow()
     {
-        if (m_associtatedWindow.State != PcWindowState.Open)
+        if (CanBeOpened && m_associtatedWindow.State != PcWindowState.Open)
         {
             m_associtatedWindow.gameObject.SetActive(true);
             m_associtatedWindow.Open();
