@@ -3,9 +3,6 @@ using System.Collections;
 
 public static class EventManager {
 
-    private static bool m_passChangeEvt = false;
-    private static bool m_hasFoundApartmentEvt = false;
-    private static bool m_hasDeletedPasswords = false;
     private static PcScreenBankWidget m_bank;
     public static PcScreenBankWidget Bank
     {
@@ -21,35 +18,19 @@ public static class EventManager {
         }
     }
 
-    public static bool ChangedPassword
+    private static PcScreenWidgetNotes m_notes;
+    public static PcScreenWidgetNotes Notes
     {
+        set
+        {
+            if (m_notes == null)
+                m_notes = value;
+        }
+
         get
         {
-            return m_passChangeEvt;
+            return m_notes;
         }
     }
 
-    public static bool PasswordsDeleted
-    {
-        get
-        {
-            return m_hasDeletedPasswords;
-        }
-    }
-
-    public static void PassChange()
-    {
-        if (!m_passChangeEvt)
-            m_passChangeEvt = true;
-
-        Debug.Log("Password was changed");
-    }
-
-    public static void DeletedPasswords()
-    {
-        if (!m_hasDeletedPasswords)
-            m_hasDeletedPasswords = true;
-
-        Debug.Log("Has deleted passwords");
-    }
 }

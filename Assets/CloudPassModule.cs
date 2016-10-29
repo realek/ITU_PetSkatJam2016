@@ -28,7 +28,6 @@ public class CloudPassModule : MonoBehaviour {
 
     public void PassChange()
     {
-        EventManager.PassChange();
         m_button.SetActive(true);
         m_passChangePage.SetActive(false);
 

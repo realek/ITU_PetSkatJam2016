@@ -44,7 +44,8 @@ public class PcFileIconDrag : MonoBehaviour {
 
         if ((recBinMin.x <=fileMax.x && recBinMax.x >=fileMin.x) && (recBinMin.y <= fileMax.y && recBinMax.y >= fileMin.y))
         {
-            EventManager.DeletedPasswords();
+            EventManager.Notes.StartDeletePassText();
+            EventManager.Notes.CompleteDeletePassText();
             Destroy(gameObject);
         }
         m_obj.CanBeOpened = true;
