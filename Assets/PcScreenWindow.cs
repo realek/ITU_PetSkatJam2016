@@ -42,6 +42,8 @@ public class PcScreenWindow : MonoBehaviour {
 
         m_state = PcWindowState.Closed;
         gameObject.SetActive(false);
+        m_windowText = transform.GetChild(0).GetComponent<Text>();
+        m_windowText.text = m_windowName;
 	}
 	
 	// Update is called once per frame
