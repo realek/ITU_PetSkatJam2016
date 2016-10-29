@@ -14,12 +14,15 @@ public class PCScreenObject : MonoBehaviour {
     private Image m_iconImage;
     private Text m_iconText;
     public bool CanBeOpened = true;
+    public bool HasName = true;
     // Use this for initialization
 	void Start () {
         m_iconImage = GetComponent<Image>();
         m_iconText = transform.GetChild(1).GetComponent<Text>();
         m_iconImage.sprite = m_iconSprite;
-        m_iconText.text = m_IconName;
+
+        if (HasName)
+            m_iconText.text = m_IconName;
 
         if (m_windowPrefab != null)
         {
