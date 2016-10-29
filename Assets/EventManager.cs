@@ -6,6 +6,20 @@ public static class EventManager {
     private static bool m_passChangeEvt = false;
     private static bool m_hasFoundApartmentEvt = false;
     private static bool m_hasDeletedPasswords = false;
+    private static PcScreenBankWidget m_bank;
+    public static PcScreenBankWidget Bank
+    {
+        set
+        {
+            if (m_bank == null)
+                m_bank = value;
+        }
+
+        get
+        {
+            return m_bank;
+        }
+    }
 
     public static bool ChangedPassword
     {
