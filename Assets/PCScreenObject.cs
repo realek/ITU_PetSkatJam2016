@@ -25,7 +25,9 @@ public class PCScreenObject : MonoBehaviour {
         {
             m_associtatedWindow = Instantiate(m_windowPrefab).GetComponent<PcScreenWindow>();
             m_associtatedWindow.transform.SetParent(transform.parent);
-            m_associtatedWindow.transform.localPosition = transform.localPosition;
+            RectTransform parentRect = transform.GetComponent<RectTransform>();
+            m_associtatedWindow.transform.localPosition = parentRect.rect.center;
+            m_associtatedWindow.transform.localScale = Vector3.one;
         }
 
 

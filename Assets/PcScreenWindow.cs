@@ -10,6 +10,13 @@ public enum PcWindowState
     Minimized
 }
 
+public enum PcWindowContent
+{
+    None,
+    R_Email,
+    F_Email
+}
+
 public class PcScreenWindow : MonoBehaviour {
 
     private Text m_windowText;
@@ -29,12 +36,10 @@ public class PcScreenWindow : MonoBehaviour {
     }
     private bool m_dragging;
     private Vector3 m_lastMousePos;
-    private RectTransform m_transform;
     bool m_dragStart;
 	// Use this for initialization
 	void Start () {
 
-        m_transform = gameObject.GetComponent<RectTransform>();
         m_state = PcWindowState.Closed;
         gameObject.SetActive(false);
 	}
@@ -74,4 +79,5 @@ public class PcScreenWindow : MonoBehaviour {
     {
         m_dragging = false;
     }
+
 }
