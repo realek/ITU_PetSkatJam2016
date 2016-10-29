@@ -7,14 +7,14 @@ public class PcScreenBankWidget : MonoBehaviour {
     [SerializeField]
     private float m_currentBallance;
     private const float GBP_TO_DKK_RATE = 8.25f;
-    private const string USD = "GBP";
+    private const string GBP = "GBP";
     private Text m_ballanceDisplay;
 	// Use this for initialization
 	void Start ()
     {
         m_ballanceDisplay = gameObject.transform.GetChild(1).GetComponent<Text>();
         EventManager.Bank = this;
-        m_ballanceDisplay.text = m_currentBallance.ToString() + " " + USD;
+        m_ballanceDisplay.text = m_currentBallance.ToString() + " " + GBP;
 	}
 	
 	// Update is called once per frame
@@ -26,6 +26,6 @@ public class PcScreenBankWidget : MonoBehaviour {
     {
         if(ammount > 0)
             m_currentBallance -= ammount / GBP_TO_DKK_RATE;
-        m_ballanceDisplay.text = m_currentBallance.ToString() + " " + USD;
+        m_ballanceDisplay.text = m_currentBallance.ToString() + " " + GBP;
     }
 }
