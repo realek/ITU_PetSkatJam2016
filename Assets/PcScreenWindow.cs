@@ -23,8 +23,6 @@ public class PcScreenWindow : MonoBehaviour {
     private Button m_closeButton;
     [SerializeField]
     private string m_windowName;
-    [SerializeField]
-    private Sprite m_windowCloseSprite;
     private PcWindowState m_state;
     public PcWindowState State
     {
